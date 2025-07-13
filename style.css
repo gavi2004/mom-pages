@@ -1,0 +1,522 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Header and Hero Section */
+.hero-section {
+    background-image: url('index1.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 0;
+    height: 100vh; /* Make the hero section take full viewport height */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-section .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally within the logo div */
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Keep positioned to the left of the hero section */
+    transform: translateX(0);
+    z-index: 3;
+}
+
+.hero-section .logo img {
+    width: 600px; /* Tamaño del logo */
+    height: 600px;
+    margin-bottom: 0px;
+    margin-right: 0;
+    display: block; /* Ensure no extra space from inline display */
+}
+
+.hero-section .logo p {
+    text-align: center; /* Center FCBG text */
+    line-height: 1.1;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #1a4f30;
+    margin: 0;
+}
+
+.hero-section .logo p.slogan {
+    font-size: 4em;
+    font-weight: normal;
+    color: #1a4f30;
+    margin-top: -30px; /* Adjust to slightly overlap the logo */
+    padding: 0; /* Ensure no padding */
+    line-height: 1; /* Adjust line-height to remove extra space */
+    text-align: center;
+}
+
+.hero-section .header-content {
+    position: absolute; /* Posicionamiento absoluto */
+    bottom: 30px; /* Posición inferior */
+    left: 30px; /* Posición izquierda */
+    z-index: 2;
+    text-align: left;
+    max-width: 800px;
+    padding: 0;
+}
+
+.hero-section h1 {
+    font-size: 4em;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.hero-section .btn {
+    padding: 12px 25px;
+}
+
+/* Professional Builders Section */
+.professional-builders-section {
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0; /* Asegurar que no haya margen superior que cause superposición */
+}
+
+.professional-builders-section .background-text {
+    position: absolute;
+    font-size: 15em; /* Aumentar el tamaño para un efecto más imponente */
+    color: rgba(255, 255, 255, 0.03); /* Opacidad muy baja para un efecto sutil */
+    top: 50%;
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Centrar con transform */
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.professional-builders-section h2 {
+    font-size: 3em; /* Título más grande */
+    margin-bottom: 25px; /* Más espacio debajo del título */
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    padding-left: 0; /* Eliminar padding si no es necesario */
+}
+
+.professional-builders-section .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+    padding-left: 20px;
+}
+
+.professional-builders-section .text-content {
+    flex: 0.7; /* El texto ocupará menos espacio relativo */
+    padding-right: 0;
+}
+
+.professional-builders-section .text-content p {
+    font-size: 1.1em; /* Texto más grande */
+    line-height: 1.8; /* Mayor altura de línea para mejor legibilidad */
+    margin-bottom: 20px; /* Espacio entre párrafos */
+    text-align: left; /* Asegurar alineación a la izquierda */
+}
+
+.professional-builders-section .images-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1.3; /* La imagen ocupará más espacio relativo */
+    flex-shrink: 1; /* Permitir que se encoja si es necesario */
+}
+
+.professional-builders-section .images-content img {
+    max-width: 600px; /* Aumentar el tamaño máximo de la imagen */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Services Section */
+.services-section {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.services-section p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.service-card-wrapper {
+    /* Remover estilos de tarjeta, ahora aplicados a .service-item */
+    display: flex;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: center; /* Centrar contenido horizontalmente */
+    padding-bottom: 0; /* Padding se ajustará en el nombre si es necesario */
+    overflow: hidden;
+    text-align: center;
+    background-color: transparent; /* Hacer el wrapper transparente */
+    box-shadow: none; /* Sin sombra en el wrapper */
+    border-radius: 0; /* Sin bordes en el wrapper */
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 0; /* Eliminar el padding para que la imagen ocupe todo el espacio */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+}
+
+.service-item img {
+    width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+    max-width: none; /* Eliminar el max-width para que se expanda sin límites */
+    height: 100%; /* La imagen ocupa el 100% del alto del contenedor */
+    object-fit: cover; /* Asegurar que la imagen cubra el área sin distorsión */
+    margin-bottom: 0;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.service-name-outside {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    padding: 0 10px; /* Padding horizontal para el texto */
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px; /* Añadir un poco de espacio superior */
+}
+
+.project-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.project-item {
+    background-color: #fff;
+    padding: 0; /* Eliminar padding para que la imagen ocupe todo el espacio */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Mantener la altura mínima de la imagen */
+}
+
+.project-item img {
+    width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+    max-width: none; /* Eliminar el max-width para que se expanda sin límites */
+    height: 100%; /* La imagen ocupa el 100% del alto del contenedor */
+    object-fit: cover; /* Asegurar que la imagen cubra el área sin distorsión */
+    margin-bottom: 0;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.project-name-outside {
+    margin-top: 15px; /* Espacio entre la imagen y el texto del nombre */
+    font-size: 1.2em; /* Tamaño de fuente para el nombre */
+    font-weight: bold;
+    color: #333;
+    padding: 0 10px; /* Padding horizontal para el texto */
+}
+
+/* Stats Section */
+.stats-section {
+    background-color: #d3d3d3;
+    color: #333;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.stats-section .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    margin: 20px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.stat-item .stat-label {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.stat-item .stat-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: #1a4f30;
+}
+
+/* Client Logos Section */
+.client-logos-section {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.client-logos-section .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.client-logos-section img {
+    max-height: 50px;
+    margin: 0 10px;
+    opacity: 0.7;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-align: left;
+}
+
+.testimonial-item p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.testimonial-item .client-name {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #1a4f30;
+}
+
+/* Contact Section (Footer) */
+.contact-section {
+    background-image: url('img/footer_background.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 80px 0;
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.contact-section .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-section .footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.contact-section .footer-logo img {
+    margin-right: 10px;
+}
+
+.contact-section .footer-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+.contact-info h3,
+.office-hours h3,
+.social-media h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.contact-info p,
+.office-hours p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.social-media .social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start; /* Alinear los iconos a la izquierda */
+}
+
+.social-icons .fab {
+    font-size: 40px; /* Tamaño del icono Font Awesome */
+    color: #fff; /* Color blanco para los iconos */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section .logo {
+        top: 10px;
+        left: 10px;
+    }
+    .hero-section .logo img {
+        width: 20px;
+        height: 20px;
+    }
+    .hero-section .logo p {
+        font-size: 0.7em;
+    }
+    .hero-section .logo p.slogan {
+        font-size: 0.5em;
+    }
+    .hero-section .header-content {
+        bottom: 20px;
+        left: 20px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .professional-builders-section .background-text {
+        font-size: 6em;
+        left: -50px; /* Ajuste responsivo */
+    }
+    .professional-builders-section h2,
+    .professional-builders-section .container {
+        padding-left: 10px;
+    }
+    .professional-builders-section .images-content {
+        flex-direction: column;
+    }
+
+    .stats-section .container,
+    .client-logos-section .container,
+    .testimonials-grid,
+    .footer-content-grid {
+        flex-direction: column;
+    }
+
+    .stats-section .stat-item,
+    .client-logos-section img,
+    .testimonial-item {
+        margin-bottom: 20px;
+    }
+    .footer-content-grid {
+        grid-template-columns: 1fr; /* Apilar columnas en pantallas pequeñas */
+    }
+}
