@@ -261,7 +261,7 @@ body {
 
 .professional-builders-section .container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 80px;
     position: relative;
     z-index: 1;
@@ -565,36 +565,80 @@ body {
 }
 
 .contact-section .footer-content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    text-align: left; /* Align text to the left */
 }
 
-.contact-info h3,
-.office-hours h3,
+.contact-info {
+    flex: 1;
+    min-width: 250px; /* Ensure it takes up enough space */
+    margin-bottom: 20px;
+}
+
+.contact-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.social-media {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    text-align: left; /* Ensure social media section is left-aligned */
+}
+
 .social-media h3 {
     font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #333; /* Change to black */
-}
-
-.contact-info p,
-.office-hours p {
-    font-size: 0.95em;
-    line-height: 1.6;
-    color: #333; /* Ensure text is black */
+    margin-bottom: 15px;
+    color: #333;
 }
 
 .social-media .social-icons {
     display: flex;
+    justify-content: flex-start; /* Align icons to the left */
     gap: 15px;
-    justify-content: flex-start; /* Alinear los iconos a la izquierda */
+    margin-top: 0px;
 }
 
 .social-icons .fab {
-    font-size: 40px; /* Tamaño del icono Font Awesome */
-    color: #333; /* Change to black */
+    font-size: 1.8em;
+    color: #1a4f30;
+    transition: color 0.3s ease;
+}
+
+.social-icons .fab:hover {
+    color: #2c974b;
+}
+
+.office-hours {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+.office-hours h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.office-hours p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 5px;
 }
 
 /* Responsive adjustments for navigation */
@@ -750,6 +794,9 @@ body {
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        background-color: transparent; /* Remove background */
+        box-shadow: none; /* Remove shadow */
+        border-radius: 0; /* Remove border-radius */
     }
     .service-item img {
         height: auto;
@@ -768,6 +815,9 @@ body {
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        background-color: transparent; /* Remove background */
+        box-shadow: none; /* Remove shadow */
+        border-radius: 0; /* Remove border-radius */
     }
     .project-item img {
         height: auto;
@@ -786,33 +836,23 @@ body {
     }
 
     .footer-content-grid {
-        gap: 10px; /* Increased gap */
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
     }
+
     .contact-info,
-    .office-hours,
-    .social-media {
-        text-align: center;
-        padding: 0 5px; /* Increased padding */
+    .social-media,
+    .office-hours {
+        width: 100%; /* Full width on mobile */
+        text-align: left;
     }
-    .contact-info p,
-    .office-hours p {
-        font-size: 3.5vw; /* Responsive font size */
-    }
-    .contact-section .footer-logo {
-        margin-bottom: 10px;
-        justify-content: center;
-        width: 100%;
-    }
+
     .social-media h3 {
-        font-size: 5vw; /* Responsive font size */
-        margin-bottom: 5px;
+        display: none; /* Hide 'Stay connected' heading on mobile */
     }
+
     .social-icons {
-        justify-content: center;
-    }
-    .social-icons .fab {
-        font-size: 8vw; /* Responsive icon size */
+        justify-content: flex-start; /* Ensure left alignment on mobile */
     }
 
     .testimonial-item p {
@@ -839,6 +879,54 @@ body {
     }
     .hero-section .header-content {
         bottom: 10px; /* Adjust header content position */
+    }
+    .contact-section {
+        padding: 40px 0; /* Increase padding for the footer section on mobile */
+    }
+
+    /* Force all text and icons within the footer to be black */
+    .contact-section *,
+    .contact-section a { /* Ensure links are also black */
+        color: #333 !important;
+    }
+
+    /* Grid layout for footer content */
+    .footer-content-grid {
+        gap: 20px;
+    }
+
+    /* Set order for mobile footer items */
+    /* Removed order properties as HTML structure changed */
+
+    /* Center text and elements within footer columns */
+    .contact-info,
+    .office-hours,
+    .social-media {
+        text-align: left; /* Align text to the left as per image */
+        padding: 10px 0; /* Adjust padding */
+    }
+
+    .social-media h3 {
+        display: none; /* Hide "Stay connected" heading on mobile */
+    }
+
+    /* Adjust social icons for alignment with email */
+    .social-icons {
+        justify-content: flex-start; /* Align icons to the left */
+        margin-top: 0px; /* Adjusted to bring closer to email */
+    }
+
+    /* Specific adjustments for footer logo if needed */
+    .contact-section .footer-logo {
+        margin-bottom: 20px;
+        justify-content: center;
+        width: 100%;
+        display: flex; /* Ensure flex for justify-content */
+    }
+
+    /* Override desktop ::before overlay */
+    .contact-section::before {
+        background-color: transparent !important;
     }
 }
 
