@@ -6,18 +6,55 @@
     <title>FCBG - Expert Constructions Services</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header class="hero-section">
-        <div class="logo">
-            <img src="logo.png" alt="FCBG Logo">
+        <div class="hero-image-container">
+            <img src="index1.png" alt="Building Overview">
         </div>
-        <div class="header-content">
-            <h1>EXPERT CONSTRUCTIONS SERVICES</h1>
+        <div class="hero-content-wrapper">
+            <div class="logo" data-aos="fade-down">
+                <img src="logo.png" alt="FCBG Logo">
+            </div>
+            <div class="header-content" data-aos="fade-up" data-aos-delay="200">
+                <h1>EXPERT CONSTRUCTIONS SERVICES</h1>
+            </div>
         </div>
+        <!-- Desktop Navbar -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#professional-builders-section">Professional Builders</a></li>
+                <li><a href="#services-section">Services</a></li>
+                <li><a href="#projects-section">Projects</a></li>
+                <li><a href="#stats-section">Stats</a></li>
+                <li><a href="#client-logos-section">Clients</a></li>
+                <li><a href="#testimonials-section">Testimonials</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Sidebar Toggle Button -->
+        <button class="sidebar-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
-    <section class="professional-builders-section">
+    <!-- Mobile Sidebar -->
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#professional-builders-section">Professional Builders</a></li>
+                <li><a href="#services-section">Services</a></li>
+                <li><a href="#projects-section">Projects</a></li>
+                <li><a href="#stats-section">Stats</a></li>
+                <li><a href="#client-logos-section">Clients</a></li>
+                <li><a href="#testimonials-section">Testimonials</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <section class="professional-builders-section" id="professional-builders-section" data-aos="fade-up">
 
         <div class="container">
             <div class="text-content">
@@ -31,7 +68,7 @@
         </div>
     </section>
 
-    <section class="services-section">
+    <section class="services-section" id="services-section">
         <div class="container">
             <h2>Services</h2>
             <p>"Our commitment to good practices on construction sites reflects not only our operational excellence and environmental responsibility, but also ensures that the client receives a excellent and properly managed environment upon completion of the work."</p>
@@ -44,7 +81,7 @@
                 </div>
                 <div class="service-card-wrapper">
                     <div class="service-item">
-                        <img src="img/framing.png" alt="Service 2">
+                        <img src="img/exte.png" alt="Service 2">
                     </div>
                     <p class="service-name-outside">Exterior</p>
                 </div>
@@ -70,7 +107,7 @@
         </div>
     </section>
 
-    <section class="projects-section">
+    <section class="projects-section" id="projects-section">
         <div class="container">
             <h2>Projects</h2>
             <div class="projects-grid">
@@ -96,66 +133,42 @@
         </div>
     </section>
 
-    <section class="stats-section">
-        <div class="container">
-            <div class="stat-item">
-                <p class="stat-label">Year Established</p>
-                <p class="stat-number">1902</p>
-            </div>
-            <div class="stat-item">
-                <p class="stat-label">Skilled Artisans</p>
-                <p class="stat-number">56</p>
-            </div>
-            <div class="stat-item">
-                <p class="stat-label">Completed Projects</p>
-                <p class="stat-number">1,000+</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="client-logos-section">
-        <div class="container">
-            <img src="img/solana.png" alt="Santa Solana Post Logo">
-            <img src="img/plew.png" alt="The Plew Logo">
-            <img src="img/merion.png" alt="Merion Weekly Logo">
-            <img src="img/frell.png" alt="Frell Media Logo">
-        </div>
-    </section>
-
-    <section class="testimonials-section">
+    <section class="testimonials-section" id="testimonials-section" data-aos="fade-up">
         <div class="container">
             <h2>From Our Satisfied Clients</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-item">
-                    <p>Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.</p>
-                    <p class="client-name">- Bass Co.</p>
+                    <p>I’m truly impressed with the quality and professionalism demonstrated throughout the construction process. 
+                        The attention to detail, solid workmanship, and commitment to high standards were evident in every phase of the project. 
+                        The final result not only meets expectations but exceeds them. A job exceptionally well done—highly recommended.</p>
+                    <p class="client-name">- Excellent Construction Work</p>
                 </div>
                 <div class="testimonial-item">
-                    <p>Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.</p>
-                    <p class="client-name">- Milcheur Law</p>
+                    <p>I’m so happy with how everything turned out—it totally exceeded my expectations. 
+                        Now I have a kitchen that’s not just modern and functional, but also super cozy and beautiful. 
+                        I really appreciate the great work, friendly service, and attention to detail. Definitely recommend!</p>
+                    <p class="client-name">- Big thanks for the amazing kitchen remodel</p>
                 </div>
                 <div class="testimonial-item">
-                    <p>Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.</p>
-                    <p class="client-name">- Studio Rallia</p>
+                    <p>After the hurricane, our house was badly damaged and we honestly didn’t know if it would ever feel the same again. But thanks to the amazing remodeling team, it’s now even better than before.
+                        From demolition to the final touches, they took care of everything with professionalism and kept us in the loop the whole way. They were super thoughtful, reliable, and it’s clear they really care about their work.
+                        Now we have a beautiful, safe, and lively home again. We’re beyond grateful</p>
+                    <p class="client-name">- Thank you for giving us our home back FCBG</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="contact-section">
+    <footer class="contact-section" id="contact-section" data-aos="fade-up">
         <div class="container">
             <div class="footer-logo">
-                <img src="img/footer_logo.png" alt="Hendles Builders Logo">
-                <p>Hendles Builders</p>
             </div>
             <div class="footer-content-grid">
                 <div class="contact-info">
-                    <h3>Fort Leburg</h3>
-                    <p>123 Anywhere St.</p>
-                    <p>Any City, ST 12345</p>
-                    <p>(PWD parking available)</p>
-                    <p>Tel. (123) 456-7890</p>
-                    <p>Email: hello@reallygreatsite.com</p>
+                    <p>Tel. 656.249.3803</p>
+                    <p>Tel. 813.378.0337</p>
+                    <p>Email: FCBuildingroup@gmail.com</p>
                 </div>
                 <div class="office-hours">
                     <h3>Office hours</h3>
@@ -167,12 +180,23 @@
                     <h3>Stay connected</h3>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Sidebar toggle functionality
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
