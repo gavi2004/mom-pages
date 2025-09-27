@@ -1,0 +1,1246 @@
+* {
+    box-sizing: border-box; /* Asegurar que el padding y borde se incluyan en el ancho/alto */
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden; /* Evitar scroll horizontal en todo el documento */
+    scroll-behavior: smooth; /*desplazarse entre elementos o secciones dentro de una misma página web. Suavizar Desplazamiento con CSS*/
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.cabezal img {
+    width: 100%;
+    height: auto;
+    display: block; /* Asegurar que la imagen ocupe todo el ancho del contenedor */
+  
+}
+
+.logo_nav {
+    width: 80px; /* Ajustar el ancho del logo */
+    height: auto; /* Mantener la proporción del logo */
+    margin-right: 20px; /* Espacio entre el logo y el texto */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-decoration: none;
+}
+
+
+
+.Gallery-button {
+    display: inline-block;
+    background-color: #1a4f30; /* Dark green */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+   text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Header and Hero Section */
+.hero-section {
+    background-color: #E0E8D7; /* Light green background */
+    background-size: cover;
+    background-position: center;
+    color: #333; /* Default text color for content area */
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 0; /* Remove padding for fixed navbar, will adjust content directly */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-left: 0;
+}
+
+.textosuperior{
+    position: absolute;
+    margin-top: 25%;
+   margin-left: 15%;
+   text-decoration: none;
+   -webkit-text-stroke: #003a1d 3px;
+   background-color: rgba(0, 0, 0, 0);
+  top: 10px;
+  left: 10px;
+  color: white; 
+    font-weight: bold;
+  font-size: 4.2em;
+
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Top dark green band height */
+    background-color: #1a4f30; /* Dark green */
+    z-index: 2; /* Ensure it's visible above other content */
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Bottom dark green band height */
+    background-color: #1a4f30; /* Dark green */
+    z-index: 2;
+}
+
+.hero-section .hero-image-container {
+    flex: 0.6;
+    height: calc(100vh - 40px); /* 100vh minus 2*20px for bands */
+    margin-top: 20px; /* Push down to avoid overlapping top band */
+    overflow: hidden;
+    background-color: #1a4f30; /* Dark green background for the image container */
+    height: 100%;
+    overflow: hidden; /* Ensure no overflow issues from image */
+    position: relative; /* Add relative positioning for absolute child */
+}
+
+.hero-section .hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 20% center;
+}
+
+.hero-section .hero-overlay-logo {
+    position: absolute;
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajustar para un centrado real */
+    width: 500px; /* Tamaño grande para el efecto de marca de agua */
+    height: auto; /* Mantener la proporción */
+    object-fit: contain; /* Asegurar que el logo completo sea visible */
+    opacity: 0.5; /* Aumentar la opacidad para que sea más visible */
+    z-index: 5; /* Asegurar que esté encima de la imagen principal */
+}
+
+.hero-section .hero-content-wrapper {
+    flex: 0.4;
+    background-color: #E0E8D7; /* Light green background for content wrapper */
+    color: #333; /* Default text color for this section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 40px; /* Padding inside the content wrapper */
+    padding-left: 80px; /* Adjust as needed for alignment with image */
+    padding-right: 40px;
+    height: calc(100vh - 40px); /* Align height with image container */
+    margin-top: 20px; /* Align with image container */
+}
+
+.hero-section .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    position: relative; /* Change to relative positioning */
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    z-index: 3;
+    margin-bottom: 20px; /* Space between logo and heading */
+}
+
+.hero-section .logo img {
+    width: 250px; /* Increase logo size to match the reference image */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 0px;
+    margin-right: 0;
+    display: block;
+}
+
+.hero-section .logo p {
+    text-align: center; /* Align text to the center */
+    line-height: 1.1;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #1a4f30; /* Change color to green */
+    margin: 0; /* Remove top margin */
+}
+
+.hero-section .slogan-box {
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 8px 20px;
+    margin-top: 0px; /* Space between logo and slogan */
+    margin-bottom: 25px; /* Space between slogan and h1 */
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    max-width: fit-content; /* Adjust width to content */
+}
+
+.hero-section .slogan-box p {
+    margin: 0;
+}
+
+.hero-section .header-content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    z-index: 2;
+    text-align: left;
+    max-width: 800px;
+    padding: 0;
+}
+
+.hero-section h1 {
+    font-size: 3.8em;
+    margin: 0; /* Remove top margin, rely on margin-bottom of slogan */
+    font-weight: 800;
+    line-height: 1.05;
+    color: #333;
+    text-transform: uppercase;
+    margin-top: 10px; /* Adjust margin to bring H1 closer to the logo */
+    text-shadow: none;
+}
+
+.hero-section .btn {
+    padding: 12px 25px;
+}
+
+/* Main Navigation (Desktop) */
+.main-nav {
+    position: fixed; /* Keep navbar visible on scroll */
+    top: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255); /* Slightly transparent background */
+    z-index: 1000; /* Ensure it stays on top */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav ul li {
+   padding-top: 32px;
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    
+    color: #003a1d;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    transition: 500ms ease;
+}
+
+.main-nav ul li a:hover {
+   color: #001f0f;
+   font-size: 1.3em;
+   transition: 500ms ease;
+}
+
+/* Mobile Sidebar */
+.sidebar {
+    position: fixed; /* Keep sidebar visible on scroll */
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: rgba(26, 79, 48, 0.95);
+    z-index: 1001; /* Higher than navbar */
+    padding-top: 60px; /* Space for potential header/logo */
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto; /* Enable scrolling for long content */
+}
+
+.sidebar.active {
+    left: 0; /* Show sidebar when active */
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed; /* Keep toggle button visible */
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.527);
+    background-color: rgba(255, 255, 255, 0.548);
+    color: #00000093;
+    font-size: 1.8em;
+    cursor: pointer;
+    z-index: 1002; /* Higher than sidebar */
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+/* Professional Builders Section */
+.professional-builders-section {
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.professional-builders-section .background-text {
+    position: absolute;
+    font-size: 15em;
+    color: rgba(255, 255, 255, 0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.professional-builders-section h2 {
+    font-size: 3em;
+    margin-bottom: 25px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    padding-left: 0;
+}
+
+.professional-builders-section .container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+    padding-left: 20px;
+}
+
+.professional-builders-section .text-content {
+    flex: 0.7;
+    padding-right: 0;
+}
+
+.professional-builders-section .text-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.professional-builders-section .images-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1.3;
+    flex-shrink: 1;
+}
+
+.professional-builders-section .images-content img {
+    max-width: 600px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Services Section */
+
+.services-section {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.services-section p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.service-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 200px; /* Fixed width for uniform size */
+    height: 200px; /* Fixed height for uniform size, creating squares */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: unset; /* Remove min-height as fixed height is set */
+    overflow: hidden; /* Ensure image content stays within bounds */
+}
+
+.service-item img {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.service-name-outside {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    padding: 0 10px;
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: #1a4f30;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.project-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.project-item {
+    background-color: #fff;
+    padding: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 300px; /* Fixed width for uniform size */
+    height: 200px; /* Fixed height for uniform size, creating rectangles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: unset; /* Remove min-height as fixed height is set */
+    overflow: hidden; /* Ensure image content stays within bounds */
+}
+
+.project-item img {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.project-name-outside {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    padding: 0 10px;
+}
+
+/* Stats Section */
+.stats-section {
+    background-color: #d3d3d3;
+    color: #333;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.stats-section .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    margin: 20px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.stat-item .stat-label {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.stat-item .stat-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: #1a4f30;
+}
+
+/* Client Logos Section */
+.client-logos-section {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.client-logos-section .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.client-logos-section img {
+    max-height: 50px;
+    margin: 0 10px;
+    opacity: 0.7;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-align: left;
+}
+
+.testimonial-item p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.testimonial-item .client-name {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #1a4f30;
+}
+
+/* Contact Section (Footer) */
+.contact-section {
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    padding: 5px 0; /* Reducido al mínimo el padding para un footer muy pequeño */
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Changed to transparent to remove overlay */
+    z-index: 1;
+}
+
+.contact-section .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-section .footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.contact-section .footer-logo img {
+    margin-right: 10px;
+}
+
+.contact-section .footer-content-grid {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    text-align: left; /* Align text to the left */
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 250px; /* Ensure it takes up enough space */
+    margin-bottom: 10px;
+}
+
+.contact-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.social-media {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 10px;
+    text-align: left; /* Ensure social media section is left-aligned */
+}
+
+.social-media h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.social-media .social-icons {
+    display: flex;
+    justify-content: flex-start; /* Align icons to the left */
+    gap: 10px;
+    margin-top: 0px;
+}
+
+.social-icons .fab {
+    font-size: 1.5em;
+    color: #1a4f30;
+    transition: color 0.3s ease;
+}
+
+.social-icons .fab:hover {
+    color: #2c974b;
+}
+
+.office-hours {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 10px;
+    text-align: left; /* Align text to the left */
+}
+
+.office-hours h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.office-hours p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+/* Responsive adjustments for navigation */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 5px;
+        width: 100%;
+        min-width: unset;
+    }
+
+    /* Header and Hero Section adjustments for extreme responsiveness */
+    .hero-section {
+        min-height: 100px; /* Base min height */
+        height: auto; /* Allow height to adjust */
+        padding: 5px 2px; /* Minimal padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        padding-top: 180px; /* Greatly increased padding-top for maximum space for logo/header */
+        gap: 0; /* Reset gap, will use margin-bottom for explicit spacing */
+    }
+    .hero-section::before {
+        /* Keep overlay */
+    }
+    .hero-section .hero-image-container {
+        flex: 1; /* Take full width on mobile */
+        height: 300px; /* Fixed height for image container */
+        overflow: hidden;
+    }
+    .hero-section .hero-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover cover;
+    }
+
+    
+    .hero-section .hero-content-wrapper {
+        flex: 1; /* Take full width on mobile */
+        background-color: #fff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 40px;
+    }
+    .hero-section .logo {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        margin-bottom: 40px; /* Increased margin below logo for significant separation from h1 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-section .logo img {
+         /* Using fixed width for better logo size control */
+        height: auto;
+        max-width: 100%; /* Ensure it doesn't exceed parent width */
+    }
+    .hero-section .logo p.slogan {
+        font-size: 6.5vw; /* Adjusted slogan font size for better readability */
+        margin-top: 15px; /* Adjusted margin to bring slogan closer to logo but still separate */
+        margin-bottom: 0;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0,0,0,1);
+        line-height: 1.2;
+    }
+    .hero-section .header-content {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .hero-section h1 {
+        font-size: 8.5vw; /* Adjusted h1 font size for better prominence */
+        margin-bottom: 15px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        max-width: 100%;
+        min-width: 0;
+        text-shadow: 1px 1px 4px rgba(0,0,0,1);
+    }
+    .hero-section .btn {
+        padding: 8px 16px; /* Larger button for better tap target */
+        font-size: 3vw; /* Adjusted vw for button font size */
+    }
+
+    /* Professional Builders Section */
+    .professional-builders-section {
+        padding: 15px 0; /* Slightly increased padding */
+    }
+    .professional-builders-section h2 {
+        font-size: 6vw; /* Responsive font size */
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    .professional-builders-section .text-content p {
+        margin-left: 8px;
+        margin-right: 8px;
+        font-size: 17px; /* Responsive font size */
+        line-height: 1.4;
+        text-align: justify;
+        word-break: break-word;
+    }
+    .professional-builders-section .container {
+        flex-direction: column;
+        gap: 10px; /* Increased gap */
+        padding: 0 10px; /* Increased padding */
+    }
+    .professional-builders-section .images-content img {
+        max-width: 100%; /* Ensure image fits completely */
+        margin: 5px auto;
+        height: auto;
+    }
+
+    /* General section adjustments */
+    .services-section,
+    .projects-section,
+    .testimonials-section,
+    .stats-section,
+    .client-logos-section {
+        padding: 15px 0; /* Slightly increased padding */
+    }
+
+    .services-grid,
+    .projects-grid,
+    .testimonials-grid {
+        gap: 10px; /* Increased gap */
+    }
+
+    .service-card-wrapper,
+    .project-card-wrapper,
+    .testimonial-item {
+        padding: 5px; /* Increased padding */
+    }
+    .service-item {
+        min-height: 150px; /* Increased min-height for images */
+        height: auto; /* Allow height to adjust */
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: transparent; /* Remove background */
+        box-shadow: none; /* Remove shadow */
+        border-radius: 0; /* Remove border-radius */
+    }
+    .service-item img {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+        max-width: 100%;
+        display: block;
+    }
+
+    .project-item {
+        min-height: 180px; /* Increased min-height for project images */
+        height: auto; /* Allow height to adjust */
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: transparent; /* Remove background */
+        box-shadow: none; /* Remove shadow */
+        border-radius: 0; /* Remove border-radius */
+    }
+    .project-item img {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+        max-width: 100%;
+        display: block;
+    }
+
+    .client-logos-section .container {
+        gap: 10px; /* Increased gap */
+    }
+    .client-logos-section img {
+        max-height: 30px; /* Increased client logos size */
+        margin: 0 5px;
+    }
+
+    .footer-content-grid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-info,
+    .social-media,
+    .office-hours {
+        width: 100%; /* Full width on mobile */
+        text-align: left;
+        margin-bottom: 10px; /* Reduce margin on mobile */
+        padding: 5px 0; /* Reduce padding on mobile */
+    }
+
+    .contact-info h3,
+    .social-media h3,
+    .office-hours h3 {
+        font-size: 1.0em; /* Further reduce font size for mobile headings */
+        margin-bottom: 5px;
+    }
+
+    .contact-info p,
+    .office-hours p {
+        font-size: 0.8em; /* Further reduce font size for mobile paragraphs */
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+
+    .social-icons .fab {
+        font-size: 1.3em; /* Further reduce icon size for mobile */
+    }
+
+    .social-media h3 {
+        display: none; /* Hide 'Stay connected' heading on mobile */
+    }
+
+    .social-icons {
+        justify-content: flex-start; /* Ensure left alignment on mobile */
+    }
+
+    .testimonials-grid {
+    margin-left: 30px;
+    margin-right: 30px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    box-shadow: #333;
+    }
+
+    .services-grid {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+    .testimonial-item p {
+        font-size: 18px; /* Responsive font size for testimonials */
+        line-height: 1.6;
+        text-align: left;
+    }
+    .testimonial-item .client-name {
+        font-size: 4.8vw; /* Responsive font size for client name */
+        text-align: left;
+    }
+
+    .main-nav {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+    .hero-section {
+        padding-top: 60px; /* Adjusted padding for mobile with toggle */
+    }
+    .hero-section .logo {
+        top: 10px; /* Adjust logo position to avoid overlap */
+    }
+    .hero-section .header-content {
+        bottom: 10px; /* Adjust header content position */
+    }
+    .contact-section {
+        
+        padding: 0px; /* Elimina todo el padding en móvil para el footer */
+    }
+
+    /* Force all text and icons within the footer to be black */
+    .contact-section *,
+    .contact-section a { /* Ensure links are also black */
+        color: #333 !important;
+    }
+
+    /* Grid layout for footer content */
+    .footer-content-grid {
+       
+    }
+
+    /* Set order for mobile footer items */
+    /* Removed order properties as HTML structure changed */
+
+    /* Center text and elements within footer columns */
+    .contact-info,
+    .office-hours,
+    .social-media {
+        text-align: left; /* Align text to the left as per image */
+        padding: 10px 0; /* Adjust padding */
+    }
+
+    .social-media h3 {
+        display: none; /* Hide "Stay connected" heading on mobile */
+    }
+
+    /* Adjust social icons for alignment with email */
+    .social-icons {
+        justify-content: flex-start; /* Align icons to the left */
+        margin-top: 0px; /* Adjusted to bring closer to email */
+    }
+
+    /* Specific adjustments for footer logo if needed */
+    .contact-section .footer-logo {
+        margin-bottom: 20px;
+        justify-content: center;
+        width: 100%;
+        display: flex; /* Ensure flex for justify-content */
+    }
+
+    /* Override desktop ::before overlay */
+    .contact-section::before {
+        background-color: transparent !important;
+    }
+    .footer {
+    font-size: 15px;
+    align-items: center;
+    grid-template-columns: repeat(1, 5fr);
+    padding: 10px;
+    background-color: #E0E8D7; /* Light green background */
+    color: #333; /* Default text color for footer */
+    text-align: center; /* Center text in footer */
+}
+}
+
+@media (min-width: 750px) {
+    .sidebar-toggle {
+        display: none; /* Hide toggle button on desktop */
+    }
+    .sidebar {
+        display: none; /* Hide sidebar on desktop */
+    }
+}
+
+.footer {
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    background-color: #E0E8D7; /* Light green background */
+    color: #333; /* Default text color for footer */
+    text-align: center; /* Center text in footer */
+}
+
+.footer img {
+    margin: 0%;
+    width: 100px; /* Adjust the width of the footer logo */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure it's responsive */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+.footer-logo-mobile {
+    /* Removed: size: 1px; */
+}
+
+
+
+/*:::::Pie de Pagina*/
+.pie-pagina{
+    margin: 0%;
+    width: 100%;
+    background-color: #E0E8D7; /* Light green background */
+    color: #333; /* Default text color for footer */
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 350px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: #4e4e4e;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #383838;
+    margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #727272;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-2{
+    background-color: #023511;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+    .pie-pagina .grupo-1 img{
+        width: 80px;
+        padding-right: 50px;
+    }
+    .pie-pagina .grupo-1 .box figure img{
+    width: 150px;
+    }
+
+    .cabezal img {
+        width: 100%;
+        height: auto;
+        display: block; /* Asegurar que la imagen ocupe todo el ancho del contenedor */
+    }
+    .textosuperior
+    {
+       
+        text-decoration: none;
+        -webkit-text-stroke: #003a1d 2px;
+        background-color: rgba(0, 0, 0, 0);
+        top: 10px;
+        left: 10px;
+        color: white; 
+        font-weight: bold;
+        font-size: 2.5em;
+    }
+}
+
+
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+    .pie-pagina .grupo-1 img{
+        width: 80px;
+        padding-right: 50px;
+    }
+    .pie-pagina .grupo-1 .box figure img{
+    width: 150px;
+    }
+
+    .cabezal img {
+        width: 100%;
+        height: auto;
+        display: block; /* Asegurar que la imagen ocupe todo el ancho del contenedor */
+    }
+    .textosuperior
+    {
+       
+        text-decoration: none;
+        -webkit-text-stroke: #003a1d 1..5px;
+        background-color: rgba(0, 0, 0, 0);
+        top: 10px;
+        left: 10px;
+        color: white; 
+        font-weight: bold;
+        font-size: 2.5em;
+    }
+}

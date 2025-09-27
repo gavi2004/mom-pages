@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Barra Superior -->
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="img/logoletrasheader.jpg" alt="">
+            <h2>Service Gallery</h2>          
+        </div>
+        <div class="volver"> <a href="index.html">Come Back</a></div>
+    </nav>
+    <!-- Carrusel de Productos -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f690fdca-a608-4894-92ba-2022ac6d11c1.png" alt="Cesta de frutas variadas orgánicas con manzanas, plátanos y uvas sobre fondo blanco">
+                <div class="carousel-caption">
+                    <h3>Frutas Frescas</h3>
+                    <p>100% orgánicas y de temporada</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/124ea6cc-3d2e-406b-b70b-174574ad758f.png" alt="Selección de panes recién horneados en una mesa rústica">
+                <div class="carousel-caption">
+                    <h3>Panadería Artesanal</h3>
+                    <p>Hecho con ingredientes naturales</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/27dcf680-a8f6-4d42-968a-4dd971831e72.png" alt="Productos lácteos variados como quesos, leche y yogures en estantería refrigerada">
+                <div class="carousel-caption">
+                    <h3>Lácteos Premium</h3>
+                    <p>De las mejores granjas locales</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f43e57f-6d4c-4617-b02c-393eb0e2de41.png" alt="Cortes de carne premium en mostrador refrigerado con iluminación cálida">
+                <div class="carousel-caption">
+                    <h3>Carnes Selectas</h3>
+                    <p>Corte y maduración perfectos</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-nav">
+            <button class="carousel-btn prev">❮</button>
+            <button class="carousel-btn next">❯</button>
+        </div>
+        
+        <div class="carousel-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+    
+
+    </div>
+    <footer>
+    <div class="end">
+        <small>&copy; 2025 <b></b> - All Rights Reserved.</small>
+    </div>
+    </footer>
+
+    <script>
+             // Carrusel Interactivo
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Actualizar indicadores
+                indicators.forEach((indicator, index) => {
+                    if(index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+            
+            // Cambio automático cada 5 segundos
+            setInterval(() => {
+                currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 5000);
+            
+            // Click en indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // Botón descargar
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.addEventListener('click', () => {
+                alert('Redirigiendo a la tienda de aplicaciones...');
+                // Aquí iría el enlace real de descarga
+            });
+        });
+    </script>
+</body>
+</html>
