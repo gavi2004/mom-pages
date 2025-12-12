@@ -4,7 +4,7 @@ const app = express();
 
 app.set('trust proxy', true);  // Muy importante para confiar en proxy (NGINX)
 
-const PORT = 3000;
+const PORT = process.env.PORT || 7895;
 
 app.use(express.static(path.join(__dirname, 'public')));
 

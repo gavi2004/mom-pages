@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: mom-pages-web:latest
+    container_name: mom-pages-web
+    ports:
+      - "7895:7895"
+    environment:
+      - PORT=7895
+    restart: unless-stopped
+    # Si quieres montar código local para desarrollo, descomenta:
+    # volumes:
+    #   - ./:/usr/src/app
+    #   - /usr/src/app/node_modules
