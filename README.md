@@ -23,3 +23,11 @@ python3 tools/build-world.py desktop  # sólo desktop
 Requiere `numpy`, `Pillow` y `ffmpeg`. Las uniones entre clips son idénticas frame a frame (regla del paso 5 de la skill). Para cambiar escenas edita `SCENES` en el script y `PHASES` en `public/js/site.js`.
 
 `public/vendor/scrub-engine.js` es una copia del motor de la skill con un parche para poder montarlo a mitad de página (ver la cabecera del archivo).
+
+## Galerías
+
+`public/Gallery1-5.html` se generan con `python3 tools/build-galleries.py` (una por oficio, solo fotos reales de FCBG). Para añadir fotos a un oficio, ponlas en `public/img` y añádelas a su lista `extras` en el script.
+
+## Despliegue en Vercel
+
+`vercel.json` publica `public/` como sitio estático (no hace falta Express en Vercel). Cada push a la rama conectada despliega automáticamente.

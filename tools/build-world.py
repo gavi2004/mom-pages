@@ -30,7 +30,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(ROOT, "public", "img")
 OUT = os.path.join(ROOT, "public", "world")
 
-SCENES = ["framing.png", "drywall.png", "exte.png", "paint.png", "cleaning.png", "main.jpg"]
+SCENES = ["framing.webp", "drywall.webp", "exte.webp", "paint.webp", "cleaning.webp", "main.webp"]
 
 FPS = 30
 DIVE_F = 150   # 5 s

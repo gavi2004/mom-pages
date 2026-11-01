@@ -1,5 +1,5 @@
 # Imagen base oficial de Node.js LTS
-FROM node:18-alpine
+FROM node:22-alpine
 
 # Directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app
