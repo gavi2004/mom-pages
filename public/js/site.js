@@ -121,7 +121,7 @@
       // title: kinetic width collapse as the card arrives
       const s = splitChars($('.phase__title', card), { type: 'chars,words', mask: 'words' });
       setW(s.chars, 72);
-      gsap.from(s.chars, { yPercent: 110, '--w': W_MAX, duration: 1.1, stagger: .04, ease: 'expo.out',
+      gsap.from(s.chars, { yPercent: 135, '--w': W_MAX, duration: 1.1, stagger: .04, ease: 'expo.out',
         scrollTrigger: { trigger: card, start: 'top 75%', toggleActions: 'play none none reverse' } });
       gsap.from($$('.phase__eyebrow, .phase__body, .phase__tags li, .phase__cta .btn', card), { y: 18, autoAlpha: 0, duration: .8, stagger: .05, ease: 'power3.out',
         scrollTrigger: { trigger: card, start: 'top 70%', toggleActions: 'play none none reverse' } });
@@ -213,9 +213,10 @@
 
     // ---- HERO: lines drift apart, image dives, proximity width on hover
     const hero = $('.hero');
-    gsap.utils.toArray('.hero__line').forEach(line => {
+    // lines drift apart on scroll — desktop only (on phones they'd slide off the edge)
+    mm.add('(min-width: 761px)', () => gsap.utils.toArray('.hero__line').forEach(line => {
       gsap.to(line, { xPercent: 12 * Number(line.dataset.dir || 1), ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
-    });
+    }));
     mm.add('(min-width: 761px)', () => {
       gsap.to('.hero__media', { yPercent: 18, scale: .92, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
       gsap.to('.hero__frame img', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
@@ -273,7 +274,7 @@
       const s = splitChars(t, { type: 'lines,chars,words', linesClass: 'split-line', mask: 'lines' });
       setW(s.chars, 75);
       gsap.from(s.chars, {
-        yPercent: 110, '--w': W_MAX, rotate: 6, duration: 1.3, ease: 'expo.out', stagger: .035,
+        yPercent: 135, '--w': W_MAX, rotate: 6, duration: 1.3, ease: 'expo.out', stagger: .035,
         scrollTrigger: { trigger: t, start: 'top 85%', toggleActions: 'play none none reverse' },
       });
     });
@@ -302,7 +303,7 @@
       worldEl.addEventListener('sw:section', e => {
         const i = e.detail.index; if (i === last) return; last = i;
         const s = titleSplits[i]; if (!s) return;
-        gsap.fromTo(s.chars, { yPercent: 110, '--w': W_MAX }, { yPercent: 0, '--w': 72, duration: 1.1, ease: 'expo.out', stagger: .035, overwrite: true });
+        gsap.fromTo(s.chars, { yPercent: 135, '--w': W_MAX }, { yPercent: 0, '--w': 72, duration: 1.1, ease: 'expo.out', stagger: .035, overwrite: true });
         const meta = $$('.sw-copy__num, .sw-copy__eyebrow, .sw-copy__tags li', copies[i]);
         gsap.fromTo(meta, { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .8, stagger: .05, ease: 'power3.out', overwrite: true });
       });
@@ -348,7 +349,7 @@
     // ---- TESTIMONIALS: masked line reveal
     $$('.quote').forEach(q => {
       const s = SplitText.create($('p', q), { type: 'lines', linesClass: 'split-line', mask: 'lines', autoSplit: true,
-        onSplit: self => gsap.from(self.lines, { yPercent: 105, duration: 1.2, stagger: .08, ease: 'expo.out', scrollTrigger: { trigger: q, start: 'top 80%' } }) });
+        onSplit: self => gsap.from(self.lines, { yPercent: 130, duration: 1.2, stagger: .08, ease: 'expo.out', scrollTrigger: { trigger: q, start: 'top 80%' } }) });
       gsap.from($('cite', q), { x: -30, autoAlpha: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: q, start: 'top 70%' } });
       return s;
     });

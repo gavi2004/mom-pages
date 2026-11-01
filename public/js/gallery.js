@@ -21,10 +21,10 @@
 
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
     const t = $('.gal-title');
-    const s = SplitText.create(t, { type: 'chars,words', charsClass: 'char', mask: 'words' });
+    const s = SplitText.create(t, { type: 'chars,words', charsClass: 'char', wordsClass: 'word', mask: 'words' });
     gsap.set(s.chars, { '--w': 72 });
     gsap.timeline({ defaults: { ease: 'expo.out' } })
-      .from(s.chars, { yPercent: 110, '--w': 125, duration: 1.3, stagger: .04 })
+      .from(s.chars, { yPercent: 135, '--w': 125, duration: 1.3, stagger: .04 })
       .from('.gal-intro, .page-gallery .sheet-label', { y: 24, autoAlpha: 0, duration: 1 }, .2)
       .from('.gal-main', { clipPath: 'inset(100% 0% 0% 0% round 22px)', duration: 1.5, ease: 'expo.inOut' }, .2)
       .from('.gal-main img', { scale: 1.3, duration: 2 }, .2);

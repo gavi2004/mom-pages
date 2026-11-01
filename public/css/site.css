@@ -166,7 +166,12 @@ a { color: inherit; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--green-500) 70%, transparent); } 100% { box-shadow: 0 0 0 12px transparent; } }
 
 /* SplitText helpers */
-.split-line { overflow: hidden; padding-bottom: .04em; }
+.split-line { padding-bottom: .04em; }
+/* SplitText masks: give glyphs room so tight display line-heights never crop
+   the tops/bottoms of letters (the negative margin keeps the layout unchanged) */
+.split-mask-line-mask, .split-line-mask, .line-mask, .word-mask, .char-mask {
+  padding: .16em .1em; margin: -.16em -.1em;
+}
 .char { display: inline-block; will-change: transform; font-variation-settings: "wdth" var(--w); }
 .counter { font-variation-settings: "wdth" var(--w, 70) !important; }
 
