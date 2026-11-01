@@ -31,3 +31,15 @@ Requiere `numpy`, `Pillow` y `ffmpeg`. Las uniones entre clips son idénticas fr
 ## Despliegue en Vercel
 
 `vercel.json` publica `public/` como sitio estático (no hace falta Express en Vercel). Cada push a la rama conectada despliega automáticamente.
+
+## QA con agent-browser
+
+La skill [`agent-browser`](https://github.com/vercel-labs/agent-browser) está en `.claude/skills/agent-browser`. Ejemplo de revisión móvil:
+
+```bash
+npm i -g agent-browser
+agent-browser set device "iPhone 14"
+agent-browser open https://fcbg-mom-pages.vercel.app/
+agent-browser screenshot hero.png
+agent-browser errors
+```

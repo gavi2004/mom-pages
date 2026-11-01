@@ -49,6 +49,8 @@
   <!-- ============ CURSOR (desktop): drafting crosshair ============ -->
   <div class="cursor" aria-hidden="true"><span class="cursor__x"></span><span class="cursor__y"></span><span class="cursor__dot"></span></div>
 
+  <div class="progress" aria-hidden="true"><span></span></div>
+
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <a class="nav__brand" href="#top" aria-label="FCBG home">
@@ -87,7 +89,7 @@
     <section class="hero" aria-label="Intro">
       <div class="bp-grid"></div>
       <div class="hero__inner">
-        <p class="eyebrow mono hero__eyebrow"><span class="dot"></span> Residential &amp; Multifamily Construction · Florida</p>
+        <p class="eyebrow mono hero__eyebrow"><span class="dot"></span> Residential &amp; Multifamily<span class="hide-sm"> Construction</span> · Florida</p>
         <h1 class="hero__title kinetic" aria-label="Built from the blueprint up.">
           <span class="hero__line" data-dir="-1">Built from</span>
           <span class="hero__line hero__line--outline" data-dir="1">the blueprint</span>
@@ -106,10 +108,8 @@
         <div class="hero__frame">
           <img src="img/main.webp" alt="Aerial view of a completed multifamily clubhouse and pool built by FCBG" fetchpriority="high">
         </div>
-        <svg class="hero__dims" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <path class="bp-line" d="M0 -4 H100 M0 -6 V-2 M100 -6 V-2" vector-effect="non-scaling-stroke"/>
-          <path class="bp-line" d="M104 0 V100 M102 0 H106 M102 100 H106" vector-effect="non-scaling-stroke"/>
-        </svg>
+        <span class="dim dim--h" aria-hidden="true"></span>
+        <span class="dim dim--v" aria-hidden="true"></span>
         <figcaption class="mono"><span>Clubhouse &amp; amenity deck</span><span class="hero__coords">Florida</span></figcaption>
         <span class="tag tag--a mono">48'-0"</span>
         <span class="tag tag--b mono">A-101</span>
@@ -138,9 +138,9 @@
         </div>
       </div>
       <ul class="stats">
-        <li><b class="counter" data-to="10" data-suffix="+">0</b><span class="mono">Years in the field</span></li>
-        <li><b class="counter" data-to="5">0</b><span class="mono">Specialized trades</span></li>
-        <li><b class="counter" data-to="2">0</b><span class="mono">Languages · EN / ES</span></li>
+        <li><b class="counter" data-to="10" data-suffix="+">10+</b><span class="mono">Years in the field</span></li>
+        <li><b class="counter" data-to="5">5</b><span class="mono">Specialized trades</span></li>
+        <li><b class="counter" data-to="2">2</b><span class="mono">Languages · EN / ES</span></li>
         <li><b>FL</b><span class="mono">Major Florida projects</span></li>
       </ul>
     </section>
@@ -148,7 +148,7 @@
     <!-- ============ SCROLL WORLD ============ -->
     <section class="world-intro section" aria-label="Build sequence intro">
       <div class="sheet-label mono"><span>02</span> Build sequence <span class="sheet-label__line"></span> Scroll-world</div>
-      <h2 class="display kinetic-scrub">From plan<br><span class="outline">to keys.</span></h2>
+      <h2 class="display kinetic-scrub" aria-label="From plan to keys.">From plan<br><span class="outline">to keys.</span></h2>
       <p class="world-intro__lead">Scroll to fly through every phase of a build — each scene starts as a blueprint and turns into a real FCBG job site.</p>
     </section>
     <div id="world" class="world"></div>
@@ -157,15 +157,15 @@
     <section class="services section" id="services">
       <div class="sheet-label mono"><span>03</span> Services <span class="sheet-label__line"></span> Schedule of work</div>
       <div class="services__head">
-        <h2 class="display kinetic-scrub">Five trades.<br><span class="outline">One crew.</span></h2>
+        <h2 class="display kinetic-scrub" aria-label="Five trades. One crew.">Five trades.<br><span class="outline">One crew.</span></h2>
         <p>“Our commitment to good practices on construction sites reflects not only our operational excellence and environmental responsibility, but also ensures that the client receives an excellent and properly managed environment upon completion of the work.”</p>
       </div>
       <ol class="svc-list">
-        <li><a href="Gallery1.html" data-img="img/framing.webp"><span class="mono">01</span><b>Framing</b><em>Residential &amp; multifamily framing</em><i class="fa-solid fa-arrow-right"></i></a></li>
-        <li><a href="Gallery3.html" data-img="img/drywall.webp"><span class="mono">02</span><b>Drywall</b><em>Interior drywall</em><i class="fa-solid fa-arrow-right"></i></a></li>
-        <li><a href="Gallery2.html" data-img="img/exte.webp"><span class="mono">03</span><b>Exterior</b><em>Siding · roofing</em><i class="fa-solid fa-arrow-right"></i></a></li>
-        <li><a href="Gallery4.html" data-img="img/paint.webp"><span class="mono">04</span><b>Paint</b><em>Interior &amp; exterior paint</em><i class="fa-solid fa-arrow-right"></i></a></li>
-        <li><a href="Gallery5.html" data-img="img/cleaning.webp"><span class="mono">05</span><b>Cleaning</b><em>Construction cleaning</em><i class="fa-solid fa-arrow-right"></i></a></li>
+        <li><a href="Gallery1.html" data-img="img/framing.webp"><img class="svc-thumb" src="img/framing.webp" alt="" loading="lazy"><span class="mono">01</span><b>Framing</b><em>Residential &amp; multifamily framing</em><i class="fa-solid fa-arrow-right"></i></a></li>
+        <li><a href="Gallery3.html" data-img="img/drywall.webp"><img class="svc-thumb" src="img/drywall.webp" alt="" loading="lazy"><span class="mono">02</span><b>Drywall</b><em>Interior drywall</em><i class="fa-solid fa-arrow-right"></i></a></li>
+        <li><a href="Gallery2.html" data-img="img/exte.webp"><img class="svc-thumb" src="img/exte.webp" alt="" loading="lazy"><span class="mono">03</span><b>Exterior</b><em>Siding · roofing</em><i class="fa-solid fa-arrow-right"></i></a></li>
+        <li><a href="Gallery4.html" data-img="img/paint.webp"><img class="svc-thumb" src="img/paint.webp" alt="" loading="lazy"><span class="mono">04</span><b>Paint</b><em>Interior &amp; exterior paint</em><i class="fa-solid fa-arrow-right"></i></a></li>
+        <li><a href="Gallery5.html" data-img="img/cleaning.webp"><img class="svc-thumb" src="img/cleaning.webp" alt="" loading="lazy"><span class="mono">05</span><b>Cleaning</b><em>Construction cleaning</em><i class="fa-solid fa-arrow-right"></i></a></li>
       </ol>
       <div class="svc-preview" aria-hidden="true"><img alt=""></div>
     </section>
@@ -175,7 +175,7 @@
       <div class="projects__pin">
         <div class="projects__intro">
           <div class="sheet-label mono"><span>04</span> Projects <span class="sheet-label__line"></span></div>
-          <h2 class="display kinetic-scrub">Selected<br><span class="outline">work.</span></h2>
+          <h2 class="display kinetic-scrub" aria-label="Selected work.">Selected<br><span class="outline">work.</span></h2>
           <p>Multifamily communities, amenity clubhouses and full exterior packages across Florida.</p>
         </div>
         <div class="projects__track">
@@ -230,6 +230,7 @@
     </section>
   </main>
 
+  <div class="bigmark" aria-hidden="true"><div class="bigmark__track"><span>First Class Building Group</span><i>✦</i><span class="outline">First Class Building Group</span><i>✦</i></div></div>
   <footer class="footer">
     <img src="img/logo-letras.webp" alt="FCBG — First Class Building Group" class="footer__logo" loading="lazy">
     <small class="mono">© <span class="year">2026</span> First Class Building Group · All rights reserved</small>
