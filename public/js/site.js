@@ -56,7 +56,11 @@
       cta: { primary: { label: 'Start your project', href: '#contact' }, secondary: { label: 'See projects', href: '#projects' } } },
   ];
   const worldEl = $('#world');
-  if (worldEl && window.mountScrollWorld) {
+  // Phones/tablets get a native-scroll card stack instead of the video scrub:
+  // iOS Safari scrubs video badly (black frames, stutter) and it saves ~29 MB of data.
+  const PHONE_WORLD = window.matchMedia('(max-width: 860px), (hover: none) and (pointer: coarse)').matches;
+  if (worldEl && PHONE_WORLD) buildPhaseStack(worldEl);
+  else if (worldEl && window.mountScrollWorld) {
     const N = PHASES.length;
     mountScrollWorld(worldEl, {
       nav: false,
@@ -79,6 +83,61 @@
       })),
       connectors: Array.from({ length: N - 1 }, (_, i) => V + 'conn-' + i + '.mp4'),
       connectorsMobile: Array.from({ length: N - 1 }, (_, i) => V + 'conn-' + i + '-m.mp4'),
+    });
+  }
+
+  function buildPhaseStack(host) {
+    host.classList.add('phases');
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const n = PHASES.length, pad = k => String(k).padStart(2, '0');
+    host.innerHTML = PHASES.map((p, i) => {
+      const cta = p.cta
+        ? `<a class="btn btn--primary" href="${p.cta.primary.href}"><span>${esc(p.cta.primary.label)}</span><i class="fa-solid fa-arrow-right"></i></a><a class="btn btn--ghost" href="${p.cta.secondary.href}"><span>${esc(p.cta.secondary.label)}</span></a>`
+        : `<a class="btn btn--ghost" href="${p.gallery}"><span>Open gallery</span><i class="fa-solid fa-arrow-right"></i></a>`;
+      return `<article class="phase" style="z-index:${i + 1}">
+        <figure class="phase__media">
+          <img class="phase__bp" src="${V}still-${i}-m.webp" alt="" loading="${i ? 'lazy' : 'eager'}">
+          <img class="phase__ph" src="${V}photo-${i}-m.webp" alt="${esc(p.title)} — FCBG job site" loading="${i ? 'lazy' : 'eager'}">
+          <span class="phase__wipe"></span>
+          <span class="phase__badge mono">${reduce ? 'Built' : 'Blueprint'}</span>
+          <span class="phase__count mono">${pad(i + 1)} / ${pad(n)}</span>
+        </figure>
+        <div class="phase__copy">
+          <p class="phase__eyebrow mono">${esc(p.eyebrow)}</p>
+          <h3 class="phase__title">${esc(p.title)}</h3>
+          <p class="phase__body">${esc(p.body)}</p>
+          ${p.tags && p.tags.length ? `<ul class="phase__tags">${p.tags.map(t => `<li class="mono">${esc(t)}</li>`).join('')}</ul>` : ''}
+          <div class="phase__cta">${cta}</div>
+        </div>
+      </article><div class="phase-spacer" aria-hidden="true"></div>`;
+    }).join('');
+  }
+
+  function animatePhaseStack(host) {
+    const cards = $$('.phase', host), spacers = $$('.phase-spacer', host);
+    cards.forEach((card, i) => {
+      const spacer = spacers[i];
+      const ph = $('.phase__ph', card), bp = $('.phase__bp', card), wipe = $('.phase__wipe', card), badge = $('.phase__badge', card);
+      // title: kinetic width collapse as the card arrives
+      const s = splitChars($('.phase__title', card), { type: 'chars,words', mask: 'words' });
+      setW(s.chars, 72);
+      gsap.from(s.chars, { yPercent: 110, '--w': W_MAX, duration: 1.1, stagger: .04, ease: 'expo.out',
+        scrollTrigger: { trigger: card, start: 'top 75%', toggleActions: 'play none none reverse' } });
+      gsap.from($$('.phase__eyebrow, .phase__body, .phase__tags li, .phase__cta .btn', card), { y: 18, autoAlpha: 0, duration: .8, stagger: .05, ease: 'power3.out',
+        scrollTrigger: { trigger: card, start: 'top 70%', toggleActions: 'play none none reverse' } });
+      // blueprint -> real photo while the card is pinned (its spacer scrolls past)
+      let built = false;
+      gsap.timeline({ scrollTrigger: { trigger: spacer, start: 'top bottom', end: 'bottom bottom', scrub: .4,
+          onUpdate: self => { const b = self.progress > .55; if (b !== built) { built = b; badge.textContent = b ? 'Built' : 'Blueprint'; badge.classList.toggle('is-built', b); } } } })
+        .fromTo(ph, { clipPath: 'polygon(0% 0%, 0% 0%, -30% 100%, 0% 100%)' }, { clipPath: 'polygon(0% 0%, 130% 0%, 100% 100%, 0% 100%)', ease: 'none' }, 0)
+        .fromTo(wipe, { xPercent: -100, autoAlpha: 1 }, { xPercent: 1100, ease: 'none' }, 0)
+        .to(wipe, { autoAlpha: 0, duration: .05 }, .95)
+        .fromTo([ph, bp], { scale: 1.18 }, { scale: 1, ease: 'none' }, 0);
+      // the card underneath sinks back as the next one slides over it
+      if (cards[i + 1]) {
+        gsap.to(card, { scale: .93, filter: 'brightness(.72)', ease: 'none',
+          scrollTrigger: { trigger: spacer, start: 'bottom bottom', end: () => '+=' + card.offsetHeight, scrub: true } });
+      }
     });
   }
 
@@ -230,7 +289,8 @@
     counters(false);
 
     // ---- WORLD: kinetic headline per scene as the camera arrives
-    if (worldEl) {
+    if (worldEl && PHONE_WORLD) animatePhaseStack(worldEl);
+    else if (worldEl) {
       const copies = $$('.sw-copy', worldEl);
       const titleSplits = copies.map(c => {
         const t = $('.sw-copy__title', c); if (!t) return null;

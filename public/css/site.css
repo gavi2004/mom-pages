@@ -45,6 +45,7 @@ body {
   font-size: clamp(16px, 1.05vw, 18px);
   line-height: 1.55;
   overflow-x: hidden;
+  overflow-x: clip;   /* clip (not hidden) keeps position: sticky working */
   -webkit-font-smoothing: antialiased;
 }
 body.is-loading { overflow: hidden; }
@@ -481,7 +482,7 @@ a.card:hover::after { opacity: 0; }
   .hero__media .tag, .hero__media figcaption, .dim { display: none; }
   .hero .bp-grid { z-index: 1; opacity: .35; }
   .hero__inner { justify-content: flex-end; flex: 1; }
-  .hero__title { font-size: clamp(3rem, 16.5vw, 6.5rem); margin-top: 16px; }
+  .hero__title { font-size: clamp(2.8rem, 14.6vw, 6.5rem); margin-top: 16px; }
   .hero__line { white-space: nowrap; }
   .hero__line--outline { -webkit-text-stroke-width: 1.5px; }
   .hero__foot { margin-top: 22px; gap: 20px; }
@@ -561,3 +562,50 @@ a.card:hover::after { opacity: 0; }
   .world .sw-route { right: calc(48% + 14px); }
 }
 @media (max-width: 860px) { .world .sw-particles { display: none; } }
+
+
+/* =====================================================================
+   v5 — phones: build sequence as a sticky card stack (no video)
+   ===================================================================== */
+.phases { --top: 78px; --card-h: calc(100svh - var(--top) - 14px); padding: 0 12px 24px; }
+.phase {
+  position: sticky; top: var(--top); height: var(--card-h); min-height: 520px;
+  display: flex; flex-direction: column; overflow: hidden;
+  border-radius: 28px; background: var(--green-800);
+  border: 1px solid color-mix(in srgb, var(--sage) 16%, transparent);
+  box-shadow: 0 -18px 50px rgba(0, 0, 0, .35);
+  transform-origin: 50% 0%; will-change: transform, filter;
+}
+.phase-spacer { height: 75svh; }
+.phase-spacer:last-child { height: 55svh; }
+.phase__media { position: relative; margin: 0; flex: 1 1 auto; min-height: 0; overflow: hidden; background: var(--green-900); }
+.phase__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+.phase__ph { clip-path: polygon(0% 0%, 0% 0%, -30% 100%, 0% 100%); }
+.phase__wipe { position: absolute; top: -10%; bottom: -10%; left: 0; width: 10%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--sage) 85%, transparent) 50%, transparent);
+  transform: skewX(-12deg); mix-blend-mode: screen; opacity: 0; }
+.phase__media::after { content: ""; position: absolute; inset: auto 0 0 0; height: 30%; pointer-events: none;
+  background: linear-gradient(0deg, var(--green-800), transparent); }
+.phase__badge, .phase__count { position: absolute; top: 14px; z-index: 2; padding: 6px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--green-900) 70%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--sage) 25%, transparent); font-size: .62rem; }
+.phase__badge { left: 14px; color: var(--sage); transition: background .4s, color .4s; }
+.phase__badge.is-built { background: var(--green-500); color: #fff; border-color: var(--green-500); }
+.phase__count { right: 14px; color: var(--sage); }
+.phase__copy { flex: 0 0 auto; padding: 4px 20px 22px; }
+.phase__eyebrow { margin: 0; color: var(--green-500); font-size: .66rem; }
+.phase__title { margin: 6px 0 0; font-weight: 800; text-transform: uppercase; line-height: .95; font-size: clamp(2.4rem, 12vw, 3.6rem); font-variation-settings: "wdth" 72; }
+.phase__body { margin: 10px 0 0; font-size: .98rem; line-height: 1.45; color: color-mix(in srgb, var(--sage) 85%, transparent); }
+.phase__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; }
+.phase__tags li { font-size: .62rem; padding: 5px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent); }
+.phase__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.phase__cta .btn { padding: .8em 1.3em; font-size: .9rem; }
+@media (max-height: 700px) { .phase__tags { display: none; } .phase__body { font-size: .9rem; } }
+@media (orientation: landscape) and (max-height: 500px) {
+  .phases { --top: 70px; }
+  .phase { flex-direction: row; min-height: 0; }
+  .phase__media { flex: 1 1 55%; }
+  .phase__media::after { display: none; }
+  .phase__copy { flex: 0 0 45%; align-self: center; padding: 16px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .phase__ph { clip-path: none; } }
