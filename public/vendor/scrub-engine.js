@@ -259,13 +259,20 @@ function mountScrollWorld(container, config) {
       const pr = clamp((y - seg.start) / (seg.end - seg.start), 0, 1);
       const before = y < seg.start, after = y > seg.end;
       let cop;
-      if (i === 0) cop = after ? 0 : smooth(1 - pr / 0.62);            // greets on landing
+      if (isMobile()) {
+        // FCBG: on phones the copy sits in its own panel under the scene, so keep it fully
+        // readable for most of the dive and only fade at the very edges.
+        if (i === 0) cop = after ? 0 : smooth(clamp((1 - pr) * 6));
+        else if (i === N - 1) cop = before ? 0 : smooth(clamp(pr * 6));
+        else cop = (before || after) ? 0 : smooth(clamp((1 - Math.abs(pr - 0.5) / 0.5) * 6));
+      }
+      else if (i === 0) cop = after ? 0 : smooth(1 - pr / 0.62);            // greets on landing
       else if (i === N - 1) cop = before ? 0 : smooth(pr / 0.4);       // holds CTA at the end
       else cop = (before || after) ? 0 : smooth(1 - Math.abs(pr - 0.5) / 0.5);
       if (y < 0) cop = 0;   // FCBG: no copy until the world reaches the top of the viewport
       const c = copies[i];
       c.style.opacity = cop;
-      c.style.transform = reduce ? 'none' : `translateY(${(0.5 - pr) * 4}vh)`;
+      c.style.transform = (reduce || isMobile()) ? 'none' : `translateY(${(0.5 - pr) * 4}vh)`;
       c.style.pointerEvents = cop > 0.5 ? 'auto' : 'none';
     }
 
