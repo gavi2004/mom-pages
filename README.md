@@ -23,3 +23,14 @@ python3 tools/build-world.py desktop  # sólo desktop
 Requiere `numpy`, `Pillow` y `ffmpeg`. Las uniones entre clips son idénticas frame a frame (regla del paso 5 de la skill). Para cambiar escenas edita `SCENES` en el script y `PHASES` en `public/js/site.js`.
 
 `public/vendor/scrub-engine.js` es una copia del motor de la skill con un parche para poder montarlo a mitad de página (ver la cabecera del archivo).
+
+## Galerías de servicios (`Gallery1–5.html`)
+
+Framing=1, Exterior=2, Drywall=3, Paint=4, Cleaning=5. Se **generan** con `tools/build-galleries.py`
+(no editar los HTML a mano). Comparten `public/css/gallery.css` y `public/js/gallery.js` sobre el mismo
+estilo/GSAP de la home. Para añadir una foto real de obra: copiar el original dentro de `public/`, añadir
+una entrada `(ruta, caption, alt)` a la lista `photos` del oficio en el script y ejecutar:
+
+```bash
+python3 tools/build-galleries.py   # genera img/work/*.webp (+ miniaturas) y los 5 HTML
+```
